@@ -170,48 +170,34 @@ const matrix = [
 
 function greatestProduct(matrix) {
 
-let MaxCount = 0
+// Horizontal
 
-// Vertical
-let multiplicador = 1
-matrix.forEach(function(arr){
+let maxNumber = 0
 
-  arr.forEach(function(number, index2){
-
-    matrix.forEach(function(arr2) {
-
-      arr2.forEach(function(n, i) {
-
-        if (index2 === i) {
-          multiplicador = multiplicador * number * n
-        }
-      })
-
-    })
-
-    if (MaxCount < multiplicador) {
-      MaxCount = multiplicador
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length - 4; j++) {
+    let actualCount = 0
+    actualCount = matrix[i][j]* matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+    if (actualCount > maxNumber) {
+      maxNumber = actualCount
     }
-    multiplicador = 1
-  })
-
-})
-
-//Horizontal
-let multiplicador2 = 1
-matrix.forEach(function(arr){
-  arr.forEach(function(number){
-    multiplicador2 = multiplicador2 * number
-  })
-
-  if (MaxCount < multiplicador2) {
-    MaxCount = multiplicador2
   }
+}
 
-  multiplicador2 = 1
+// Vertical 
 
-})
+for (let i = 0; i < matrix.length - 4; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    let actualCount = 0
+    actualCount = matrix[i][j]* matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+    if (actualCount > maxNumber) {
+      maxNumber = actualCount
+    }
+  }
+}
 
-return MaxCount
+return maxNumber
 
 }
+
+console.log(greatestProduct(matrix))
