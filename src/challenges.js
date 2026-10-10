@@ -175,8 +175,8 @@ function greatestProduct(matrix) {
 let maxNumber = 0
 
 for (let i = 0; i < matrix.length; i++) {
-  for (let j = 0; j < matrix[i].length - 4; j++) {
-    let actualCount = 0
+  for (let j = 0; j < matrix[i].length - 3; j++) {
+    let actualCount = 0 
     actualCount = matrix[i][j]* matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
     if (actualCount > maxNumber) {
       maxNumber = actualCount
@@ -186,7 +186,7 @@ for (let i = 0; i < matrix.length; i++) {
 
 // Vertical 
 
-for (let i = 0; i < matrix.length - 4; i++) {
+for (let i = 0; i < matrix.length - 3; i++) {
   for (let j = 0; j < matrix[i].length; j++) {
     let actualCount = 0
     actualCount = matrix[i][j]* matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
